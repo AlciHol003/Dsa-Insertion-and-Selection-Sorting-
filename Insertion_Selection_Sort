@@ -1,0 +1,73 @@
+#include <stdio.h>
+void print_array(int A[], int n)
+{
+    printf("\nPrinting Array!");
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("\n %d ", A[i]);
+    }
+}
+
+void insertionSort(int A[], int n)
+{
+    printf("\nInsertion Sorintg in Progress!");
+
+    for (int i = 1; i < n; i++)
+    {
+        int key = A[i];
+        int j = i - 1;
+        while (j > -1 && A[j] > key)
+        {
+            A[j + 1] = A[j];
+            j--;
+        }
+        A[j + 1] = key;
+    }
+}
+
+void selectionSort(int A[], int n)
+{
+    printf("\nSelection Sorting in Progress!!");
+
+    for (int i = 0; i < n; i++)
+    {
+        int min = i;
+        int j;
+        int temp;
+        for (j = i + 1; j < n; j++)
+        {
+            if (A[j] < A[min])
+            {
+                min = j;
+            }
+        }
+        A[j] = A[min];
+        temp = A[j];
+        A[i] = temp;
+    }
+}
+
+int main()
+{
+
+    int n;
+    printf("Enter a Value For Array size: \n");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter the array Elements:\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("Index[%d]:", i);
+        scanf("%d", &arr[i]);
+    }
+
+    print_array(arr, n);
+    insertionSort(arr, n);
+    print_array(arr, n);
+    selectionSort(arr, n);
+    print_array(arr, n);
+
+    printf("\nThanks For using the Sort Function :)");
+}
