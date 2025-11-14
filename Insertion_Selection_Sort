@@ -42,9 +42,9 @@ void selectionSort(int A[], int n)
                 min = j;
             }
         }
-        A[j] = A[min];
-        temp = A[j];
-        A[i] = temp;
+        temp = A[i];
+        A[i] = A[min];
+        A[min] = temp;
     }
 }
 
